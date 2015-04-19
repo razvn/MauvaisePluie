@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class JeuUIDyViewController: UIViewController, UICollisionBehaviorDelegate {
     
@@ -30,6 +31,8 @@ class JeuUIDyViewController: UIViewController, UICollisionBehaviorDelegate {
     var boutonPauseDebug: UIButton?
     
     var player: UIImageView!
+    
+    var audioPlayer: AVAudioPlayer?
     
     
     //TODO later use a asteroid available pool - not urgent doesn't seem to use too much memory
@@ -175,6 +178,17 @@ class JeuUIDyViewController: UIViewController, UICollisionBehaviorDelegate {
         
         //remettre la vue au centre
         if isPhone {
+            
+            //play the sw music
+            if let sound = audioPlayer {
+                //stop the music if it's playing
+                if sound.playing {
+                    sound.stop()
+                    sound.currentTime = 0
+                }
+                sound.play()
+            }
+            
             UIView.animateWithDuration(Double(Constantes.TempsMsgFin), animations: {
                 self.imageFond.center.y = self.view.center.y
                 }, completion: {finished in
@@ -521,6 +535,13 @@ class JeuUIDyViewController: UIViewController, UICollisionBehaviorDelegate {
         animator.addBehavior(dynamic)
         animator.addBehavior(playerBehavior)
         
+        if let path = NSBundle.mainBundle().pathForResource("sw", ofType: "m4a") {
+            audioPlayer = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: path), error: nil)
+            
+            if let sound = audioPlayer {
+                sound.prepareToPlay()
+            }
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -577,7 +598,17 @@ class JeuUIDyViewController: UIViewController, UICollisionBehaviorDelegate {
                 butDroite.setTitleColor(UIColor.darkGrayColor(), forState: UIControlState.Disabled)
                 butGauche.setTitleColor(UIColor.darkGrayColor(), forState: UIControlState.Disabled)
                 
-                //on décale l'image
+                //play the sw music
+                if let sound = audioPlayer {
+                    //stop the music if it's playing
+                    if sound.playing {
+                        sound.stop()
+                        sound.currentTime = 0
+                    }
+                    sound.play()
+                }
+                
+                //change the image location
                 UIView.animateWithDuration(Double(Constantes.CountdonwFrom), animations: {
                     self.imageFond.center.y = self.view.center.y + self.maxScreenHeight / 2
                 })

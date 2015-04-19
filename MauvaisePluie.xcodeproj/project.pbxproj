@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E5CAE3E31AE4754E001AB4AA /* sw.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E5CAE3E21AE472A0001AB4AA /* sw.m4a */; };
 		E5E8611B1AE3B1A0000AA308 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E8611A1AE3B1A0000AA308 /* AppDelegate.swift */; };
 		E5E861201AE3B1A0000AA308 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5E8611E1AE3B1A0000AA308 /* Main.storyboard */; };
 		E5E861221AE3B1A0000AA308 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5E861211AE3B1A0000AA308 /* Images.xcassets */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E5CAE3E21AE472A0001AB4AA /* sw.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = sw.m4a; sourceTree = "<group>"; };
 		E5E861151AE3B1A0000AA308 /* MauvaisePluie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MauvaisePluie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E861191AE3B1A0000AA308 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5E8611A1AE3B1A0000AA308 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,7 +45,6 @@
 		E5E8612A1AE3B1A0000AA308 /* MauvaisePluieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MauvaisePluieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E8612F1AE3B1A0000AA308 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5E861301AE3B1A0000AA308 /* MauvaisePluieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MauvaisePluieTests.swift; sourceTree = "<group>"; };
-		E5E8613A1AE3B1FD000AA308 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E5E8613B1AE3B292000AA308 /* HighScore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScore.swift; sourceTree = "<group>"; };
 		E5E8613C1AE3B292000AA308 /* HighScoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreManager.swift; sourceTree = "<group>"; };
 		E5E8613D1AE3B292000AA308 /* JeuUIDyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JeuUIDyViewController.swift; sourceTree = "<group>"; };
@@ -103,7 +104,6 @@
 				E5E861411AE3B292000AA308 /* PlayerBehavior.swift */,
 				E5E861421AE3B292000AA308 /* PreferencesViewController.swift */,
 				E5E861431AE3B292000AA308 /* ScoreViewController.swift */,
-				E5E8613A1AE3B1FD000AA308 /* README.md */,
 				E5E8611E1AE3B1A0000AA308 /* Main.storyboard */,
 				E5E861181AE3B1A0000AA308 /* Supporting Files */,
 			);
@@ -114,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				E5E8611A1AE3B1A0000AA308 /* AppDelegate.swift */,
+				E5CAE3E21AE472A0001AB4AA /* sw.m4a */,
 				E5E861211AE3B1A0000AA308 /* Images.xcassets */,
 				E5E861231AE3B1A0000AA308 /* LaunchScreen.xib */,
 				E5E861191AE3B1A0000AA308 /* Info.plist */,
@@ -218,6 +219,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5CAE3E31AE4754E001AB4AA /* sw.m4a in Resources */,
 				E5E861201AE3B1A0000AA308 /* Main.storyboard in Resources */,
 				E5E861251AE3B1A0000AA308 /* LaunchScreen.xib in Resources */,
 				E5E861221AE3B1A0000AA308 /* Images.xcassets in Resources */,
