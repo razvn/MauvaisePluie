@@ -1,6 +1,7 @@
 ## Mauvise Pluie - MOOC Programmation sur iPhone et iPad
 
 Projet de fin de MOOC programmation sur iPhone et iPad partie 1 - session février 2015
+
 Jeu dans lequel il faut éviter de toucher les asteroides qui tombent le déplacement se fait à l'aide des boutons au bord gauche et droit de l'écran
 
 ## Auteur
@@ -23,7 +24,7 @@ v1.4 - version initiale GitHub
     - effet paralax plus fort et supprimé des vues préférences et scores (inutile car l'image de fond pas assez visible et ajoute un décalage)
 
 - mis à jour pour XCode 6.3 (donc Swift 1.2)
-- changement de nom de projet et refactoring en vue d'open source du projet
+- changement de nom de projet et refactoring pour publication GitHub
 
 v1.3 - version soumise
 - ajout d'une version UIDynamics du jeu. Activable depuis les parametres
@@ -37,20 +38,18 @@ v1.1
 - déplacement horizontal spécifique à chaque asteroide 
   - le score augmente que pour les asteroides qui sortent pas en bas, ceux qui sortent lateralement ne comptent pas
 
-
 v1.0
 - utilisation d'un ViewControler par écran affiché avec passage d'un à l'autre
 - utilisation d'un modèle signleton partagé par tous les viewControleurs
 - dans les constantes du JeuViewControler on peut activer un mode debug qui permet d'afficher d'info et le contour du jouer et asteroides et les rectagles de collision lors de l'impact
 
 
-
 ## Difficultés
 
-- Début en mode geek avec autolayout mais perdu beaucoup de temps sur les écrans hors jeu à essayer de le mettre en place avec beaucoup d'erreurs rencontrées à chaque ajout d'un élement
-    - du coup utilisé le mode kindergarden pour les écrans, ce fut beaucoup plus rapide
+- Début en mode geek (construction manuelle des vues) avec autolayout mais perdu beaucoup de temps sur les écrans hors jeu à essayer de le mettre en place avec beaucoup d'erreurs rencontrées à chaque ajout d'un élement
+    - du coup utilisé le mode kindergarden (Storyboard) pour les écrans, ce fut beaucoup plus rapide
 - Faire une rotation et un translation en même temps, mais finalement j'ai trouvé
-- Collision: à cause de la comparaison d'un regtagle alors que le contenu n'est pas vraiement un réctangle et des fois ce n'était pas évident à l'affichage qu'il y a eu collision
+- Collision: à cause de la comparaison d'un rectagle alors que le contenu n'est pas vraiement un rectangle et des fois ce n'était pas évident à l'affichage qu'il y a eu collision
     - du coup j'ai pris une marge de reduction des frames à comparer, pas toujours parfait (contact non visible)
 - Parametrage de la vitesse et apparition d'astéroides
     - il a fallu tatoner pour trouver des valeurs à peu près (mais je ne suis pas satisfait car niveau 5 presque injouable-du moins en simulator)
