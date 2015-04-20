@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>82ABE318-CEDD-4A97-963E-E015C0CA5AFA</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MauvaisePluie</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D4488AA66AB056F2AD881207E26B86E359EDB6B5</key>
+		<string>https://github.com/razvn/MauvaisePluie.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MauvaisePluie.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D4488AA66AB056F2AD881207E26B86E359EDB6B5</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/razvn/MauvaisePluie.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D4488AA66AB056F2AD881207E26B86E359EDB6B5</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D4488AA66AB056F2AD881207E26B86E359EDB6B5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MauvaisePluie</string>
+		</dict>
+	</array>
+</dict>
+</plist>

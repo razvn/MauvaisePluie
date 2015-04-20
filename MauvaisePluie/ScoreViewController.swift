@@ -87,6 +87,7 @@ class ScoreViewController: UIViewController, UITextFieldDelegate {
         //For handling the keyboard appear that hide the input field
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillChange:", name: UIKeyboardWillChangeFrameNotification, object: nil)
         
         
         imageFond.addSubview(blurView!)
@@ -103,6 +104,15 @@ class ScoreViewController: UIViewController, UITextFieldDelegate {
         }
         
     }
+
+    func keyboardWillChange(notification: NSNotification) {
+        //println("keyboard change")
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+            //println("Hello iPhone")
+            animateNomWithKeyboard(notification, show: true)
+        }
+        
+    }
     
     func keyboardWillHide(notification: NSNotification) {
         //println("keyboard hide")
@@ -112,6 +122,8 @@ class ScoreViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    var originy:CGFloat?
+    
     func animateNomWithKeyboard(notification: NSNotification, show: Bool) {
         
         let userInfo = notification.userInfo!
@@ -119,9 +131,17 @@ class ScoreViewController: UIViewController, UITextFieldDelegate {
         let keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
         
         if show {
-            self.view.frame.origin.y -= keyboardSize.height
+            if originy == nil {
+                originy = self.view.frame.origin.y
+            }
+            self.view.frame.origin.y = originy! - keyboardSize.height
+            //println("Show - originy: \(originy!) - keyboardSize: \(keyboardSize.height)")
         } else {
-            self.view.frame.origin.y += keyboardSize.height
+            if originy != nil {
+                self.view.frame.origin.y = originy!
+                //println("Hide - originy: \(originy)")
+
+            }
         }
     }
     
