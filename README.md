@@ -6,3 +6,6 @@ UPMC MOOC: 18003S02 Programmation sur iPhone et iPad (partie I) final project.
 
 iOS - Swift 1.2 version
 
+See [Wiki](https://github.com/razvn/MauvaisePluie/wiki) for details about the app.
+
+<img src="http://i.imgur.com/OXtiWH5.png" alt="Welcome Screen" width="500px">
