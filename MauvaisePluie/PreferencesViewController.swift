@@ -15,6 +15,7 @@ class PreferencesViewController: UIViewController, UIPickerViewDataSource, UIPic
     @IBOutlet weak var activerAppui: UISwitch!
     @IBOutlet weak var activerDynamic: UISwitch!
     @IBOutlet weak var labelAppui: UILabel!
+    @IBOutlet weak var labelDynamic: UILabel!
     
     var dataSource : MauvaisePluieDataSource!
     var blurView: UIVisualEffectView?
@@ -54,6 +55,9 @@ class PreferencesViewController: UIViewController, UIPickerViewDataSource, UIPic
         imageFond.addSubview(blurView!)
         activerAppui.hidden = true
         labelAppui.hidden = true
+        activerDynamic.hidden = true
+        labelDynamic.hidden = true
+        
         activerAppui.on = dataSource.getActiverAppui()
         activerDynamic.on = dataSource.getActiverDynamic()
         

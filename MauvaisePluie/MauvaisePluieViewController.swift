@@ -46,11 +46,15 @@ class MauvaisePluieViewController: UIViewController {
 
     override func viewWillAppear(animated: Bool) {
         labelNiveau.text = dataSource.getNiveauEncours().nom
+        
+        labelVersion.hidden = true
+        /*
         if (dataSource.getActiverDynamic()) {
             labelVersion.text = "(version UIDynamics)"
         } else {
             labelVersion.text = "(version NSTimer)"
         }
+        */
         
     }
     

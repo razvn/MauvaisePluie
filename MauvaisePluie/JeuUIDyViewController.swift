@@ -342,7 +342,7 @@ class JeuUIDyViewController: UIViewController, UICollisionBehaviorDelegate {
         }
     }
     
-    ///Collision interveption
+    ///Collision interception
     func collisionBehavior(behavior: UICollisionBehavior, beganContactForItem item1: UIDynamicItem, withItem item2: UIDynamicItem, atPoint p: CGPoint) {
         var isPlayer = false
         //if one of itemes of the colission is the player we stop the game
@@ -356,6 +356,11 @@ class JeuUIDyViewController: UIViewController, UICollisionBehaviorDelegate {
             println("collision")
             //the end of the game is set
             isPartieFinie = true
+            
+            //
+            if let img = UIImage(named: "sadplayer") {
+                player.image = img
+            }
             
             //add a behaviour to the player so it will float in space on the screen (and not going out)
             playerBehavior.end()
@@ -629,15 +634,18 @@ class JeuUIDyViewController: UIViewController, UICollisionBehaviorDelegate {
         if let img = UIImage(named: "player") {
             player = UIImageView(image: img)
             
+            let tailleRatio = img.size.width / img.size.height
+            let tailleHeight = CGFloat(Constantes.TailleJoueur) / tailleRatio
+            
             //position it in the middle
             //todo: make it off screen and make it go to the middle during animation
             let xpos = maxScreenWidth / 2 - CGFloat(Constantes.TailleJoueur) / 2
-            let ypos = maxScreenHeight - CGFloat(Constantes.TailleJoueur)
+            let ypos = maxScreenHeight - CGFloat(tailleHeight)
             
             player.frame = CGRect(x: xpos,
                 y: ypos,
                 width: CGFloat(Constantes.TailleJoueur),
-                height: CGFloat(Constantes.TailleJoueur))
+                height: CGFloat(tailleHeight))
             
             //add the player above de background
             self.view.insertSubview(player, aboveSubview: imageFond)

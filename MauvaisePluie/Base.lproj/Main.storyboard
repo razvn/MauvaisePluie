@@ -503,6 +503,7 @@
                         <outlet property="activerDynamic" destination="YOh-ws-UL5" id="HjU-XJ-ERD"/>
                         <outlet property="imageFond" destination="BV1-3D-iqJ" id="4c6-57-dxc"/>
                         <outlet property="labelAppui" destination="hAB-U0-6y8" id="arQ-mQ-RmW"/>
+                        <outlet property="labelDynamic" destination="sp2-77-no3" id="cTS-1X-50m"/>
                         <outlet property="niveauPicker" destination="sPh-tf-fb3" id="4NY-wv-X8z"/>
                     </connections>
                 </viewController>
