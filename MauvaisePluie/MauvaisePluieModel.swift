@@ -13,14 +13,15 @@ protocol MauvaisePluieDataSource {
     func addScore(score: Int, nom: String)
     func setNiveau(niveau: String)
     func getListeNiveaux() -> [String]
+    func getListeVersions() -> [String]
+    func getVersionIndex()->Int
     func getListeScores() -> [(nom: String, score: Int)]
     func getNiveauEncours() -> (nom:String, valeur: Int)
     func getScore() -> Int
     func updateScore(score: Int)
     func getActiverAppui() -> Bool
-    func setActiverAppui(activer: Bool)
-    func getActiverDynamic() -> Bool
-    func setActiverDynamic(activer: Bool)
+    func getVersion() -> String
+    func setVersion(index: Int)
     func getUnAsteroide() -> String?
 }
 
@@ -32,13 +33,20 @@ class MauvaisePluieModel: MauvaisePluieDataSource {
         static let nbAsteroidsNiveau3 = 3
         static let nbAsteroidsNiveau4 = 4
         static let nbAsteroidsNiveau5 = 5
+        static let nbAsteroidsNiveau6 = 6 
+        static let nbAsteroidsNiveau7 = 7
+        static let nbAsteroidsNiveau8 = 8
+        static let nbAsteroidsNiveau9 = 9
+        
     }
     
-    private let _niveaux = ["Niveau 1": Constantes.nbAsteroidsNiveau1, "Niveau 2": Constantes.nbAsteroidsNiveau2, "Niveau 3": Constantes.nbAsteroidsNiveau3, "Niveau 4": Constantes.nbAsteroidsNiveau4, "Niveau 5": Constantes.nbAsteroidsNiveau5]
+    private let _niveaux = ["Level 1": Constantes.nbAsteroidsNiveau1, "Level 2": Constantes.nbAsteroidsNiveau2, "Level 3": Constantes.nbAsteroidsNiveau3, "Level 4": Constantes.nbAsteroidsNiveau4, "Level 5": Constantes.nbAsteroidsNiveau5, "Level 6": Constantes.nbAsteroidsNiveau6, "Level 7": Constantes.nbAsteroidsNiveau7, "Level 8": Constantes.nbAsteroidsNiveau8, "Level 9": Constantes.nbAsteroidsNiveau9]
+    
+    private let _versions = ["SpriteKit", "UIDynamic", "NSTimer" ]
     
     private let _asteroids = ["asteroide-100-01","asteroide-100-02","asteroide-100-03", "asteroide-100-04", "asteroide-120-01", "asteroide-120-02", "asteroide-120-03", "asteroide-120-04"]
     
-    private var _niveauChoisi: (nom:String, valeur: Int) = ("Niveau 1", Constantes.nbAsteroidsNiveau1)
+    private var _niveauChoisi: (nom:String, valeur: Int) = ("Level 1", Constantes.nbAsteroidsNiveau1)
     
     private var _scores:[(nom: String, score: Int)] = [("???",0),("???",0),("???",0),("???",0),("???",0)]
     
@@ -49,7 +57,7 @@ class MauvaisePluieModel: MauvaisePluieDataSource {
     
     private var _appui = true
     
-    private var _dynamic = true
+    private var _versionIndex = 0
     
     private var listeOrdonneeNiveaux:[String]? = nil
     
@@ -82,6 +90,10 @@ class MauvaisePluieModel: MauvaisePluieDataSource {
         }
     }
     
+    func getListeVersions() ->  [String] {
+        return _versions
+    }
+    
     func getActiverAppui() -> Bool {
         return _appui
     }
@@ -90,12 +102,18 @@ class MauvaisePluieModel: MauvaisePluieDataSource {
         _appui = activer
     }
     
-    func getActiverDynamic() -> Bool {
-        return _dynamic
+    func getVersion() -> String {
+        return _versions[_versionIndex]
     }
     
-    func setActiverDynamic(activer: Bool) {
-        _dynamic = activer
+    func getVersionIndex() -> Int {
+        return _versionIndex
+    }
+    
+    func setVersion(index: Int) {
+        if (index >= 0 && index < _versions.count) {
+            _versionIndex = index
+        }
     }
     
     func getNiveauEncours() ->(nom:String, valeur: Int) {

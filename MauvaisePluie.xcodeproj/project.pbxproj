@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E533A7E71AEC804C00483995 /* Explosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E533A7E61AEC804C00483995 /* Explosion.mp3 */; };
+		E549DCEC1AE8262B00A72F7D /* JeuSKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E549DCEB1AE8262B00A72F7D /* JeuSKViewController.swift */; };
+		E549DCEE1AE8466300A72F7D /* JeuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E549DCED1AE8466300A72F7D /* JeuScene.swift */; };
+		E549DCF11AE8FB3400A72F7D /* PlayerParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = E549DCEF1AE8FB3400A72F7D /* PlayerParticle.sks */; };
+		E549DCF21AE8FB3400A72F7D /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = E549DCF01AE8FB3400A72F7D /* spark.png */; };
 		E5CAE3E31AE4754E001AB4AA /* sw.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E5CAE3E21AE472A0001AB4AA /* sw.m4a */; };
 		E5CDEA991AE66DB2005294F6 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5CDEA971AE66DB2005294F6 /* Crashlytics.framework */; };
 		E5CDEA9A1AE66DB2005294F6 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5CDEA981AE66DB2005294F6 /* Fabric.framework */; };
@@ -37,6 +42,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E533A7E61AEC804C00483995 /* Explosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Explosion.mp3; sourceTree = "<group>"; };
+		E549DCEB1AE8262B00A72F7D /* JeuSKViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JeuSKViewController.swift; sourceTree = "<group>"; };
+		E549DCED1AE8466300A72F7D /* JeuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JeuScene.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		E549DCEF1AE8FB3400A72F7D /* PlayerParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayerParticle.sks; sourceTree = "<group>"; };
+		E549DCF01AE8FB3400A72F7D /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		E5CAE3E21AE472A0001AB4AA /* sw.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = sw.m4a; sourceTree = "<group>"; };
 		E5CDEA971AE66DB2005294F6 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		E5CDEA981AE66DB2005294F6 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
@@ -105,6 +115,10 @@
 				E5E8613C1AE3B292000AA308 /* HighScoreManager.swift */,
 				E5E8613D1AE3B292000AA308 /* JeuUIDyViewController.swift */,
 				E5E8613E1AE3B292000AA308 /* JeuViewController.swift */,
+				E549DCEB1AE8262B00A72F7D /* JeuSKViewController.swift */,
+				E549DCEF1AE8FB3400A72F7D /* PlayerParticle.sks */,
+				E549DCF01AE8FB3400A72F7D /* spark.png */,
+				E549DCED1AE8466300A72F7D /* JeuScene.swift */,
 				E5E8613F1AE3B292000AA308 /* MauvaisePluieModel.swift */,
 				E5E861401AE3B292000AA308 /* MauvaisePluieViewController.swift */,
 				E5E861411AE3B292000AA308 /* PlayerBehavior.swift */,
@@ -121,6 +135,7 @@
 		E5E861181AE3B1A0000AA308 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E533A7E61AEC804C00483995 /* Explosion.mp3 */,
 				E5E8611A1AE3B1A0000AA308 /* AppDelegate.swift */,
 				E5CAE3E21AE472A0001AB4AA /* sw.m4a */,
 				E5E861211AE3B1A0000AA308 /* Images.xcassets */,
@@ -229,9 +244,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E549DCF11AE8FB3400A72F7D /* PlayerParticle.sks in Resources */,
+				E549DCF21AE8FB3400A72F7D /* spark.png in Resources */,
 				E5CAE3E31AE4754E001AB4AA /* sw.m4a in Resources */,
 				E5E861201AE3B1A0000AA308 /* Main.storyboard in Resources */,
 				E5E861251AE3B1A0000AA308 /* LaunchScreen.xib in Resources */,
+				E533A7E71AEC804C00483995 /* Explosion.mp3 in Resources */,
 				E5E861221AE3B1A0000AA308 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,12 +287,14 @@
 				E5E861451AE3B292000AA308 /* HighScoreManager.swift in Sources */,
 				E5E8614C1AE3B292000AA308 /* ScoreViewController.swift in Sources */,
 				E5E861461AE3B292000AA308 /* JeuUIDyViewController.swift in Sources */,
+				E549DCEE1AE8466300A72F7D /* JeuScene.swift in Sources */,
 				E5E861441AE3B292000AA308 /* HighScore.swift in Sources */,
 				E5E861481AE3B292000AA308 /* MauvaisePluieModel.swift in Sources */,
 				E5E8614B1AE3B292000AA308 /* PreferencesViewController.swift in Sources */,
 				E5E8611B1AE3B1A0000AA308 /* AppDelegate.swift in Sources */,
 				E5E861471AE3B292000AA308 /* JeuViewController.swift in Sources */,
 				E5E861491AE3B292000AA308 /* MauvaisePluieViewController.swift in Sources */,
+				E549DCEC1AE8262B00A72F7D /* JeuSKViewController.swift in Sources */,
 				E5E8614A1AE3B292000AA308 /* PlayerBehavior.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

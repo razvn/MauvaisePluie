@@ -12,10 +12,8 @@ class PreferencesViewController: UIViewController, UIPickerViewDataSource, UIPic
 
     @IBOutlet weak var imageFond: UIImageView!
     @IBOutlet weak var niveauPicker: UIPickerView!
-    @IBOutlet weak var activerAppui: UISwitch!
-    @IBOutlet weak var activerDynamic: UISwitch!
-    @IBOutlet weak var labelAppui: UILabel!
-    @IBOutlet weak var labelDynamic: UILabel!
+    @IBOutlet weak var labelVersion: UILabel!
+    @IBOutlet weak var versionSegment: UISegmentedControl!
     
     var dataSource : MauvaisePluieDataSource!
     var blurView: UIVisualEffectView?
@@ -49,17 +47,15 @@ class PreferencesViewController: UIViewController, UIPickerViewDataSource, UIPic
         
         niveauPicker.delegate = self
         niveauPicker.dataSource = self
+        
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.ExtraLight)
         blurView = UIVisualEffectView(effect: blurEffect)
         blurView!.frame = UIScreen.mainScreen().bounds
         imageFond.addSubview(blurView!)
-        activerAppui.hidden = true
-        labelAppui.hidden = true
-        activerDynamic.hidden = true
-        labelDynamic.hidden = true
         
-        activerAppui.on = dataSource.getActiverAppui()
-        activerDynamic.on = dataSource.getActiverDynamic()
+        versionSegment.selectedSegmentIndex = dataSource.getVersionIndex()
+        var attr = NSDictionary(object: UIFont(name: "Chalkduster", size: 20.0)!, forKey: NSFontAttributeName)
+        versionSegment.setTitleTextAttributes(attr as [NSObject : AnyObject], forState: UIControlState.Normal)
         
         niveauPicker.selectRow(dataSource.getNiveauEncours().valeur-1, inComponent: 0, animated: true)
     }
@@ -69,13 +65,10 @@ class PreferencesViewController: UIViewController, UIPickerViewDataSource, UIPic
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func activerAppuiChanged() {
-        dataSource.setActiverAppui(activerAppui.on)
+    @IBAction func versionChanged() {
+        dataSource.setVersion(versionSegment.selectedSegmentIndex)
     }
-    @IBAction func activerDynamicChanged() {
-        dataSource.setActiverDynamic(activerDynamic.on)
-    }
-
+    
     @IBAction func backToRootView(sender: AnyObject) {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
@@ -94,19 +87,34 @@ class PreferencesViewController: UIViewController, UIPickerViewDataSource, UIPic
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
         return dataSource.getListeNiveaux().count
+        
     }
-
     
     //MARK: - Delegates
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+        
         return dataSource.getListeNiveaux()[row]
+        
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
         dataSource.setNiveau(dataSource.getListeNiveaux()[row])
+        
     }
     
+    
+    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView!) -> UIView {
+        var pickerLabel = UILabel()
+        pickerLabel.textColor = UIColor.blackColor()
+        pickerLabel.text = dataSource.getListeNiveaux()[row]
+        pickerLabel.font = UIFont(name: "Chalkduster", size: 20) // In this use your custom font
+        pickerLabel.textAlignment = NSTextAlignment.Center
+        return pickerLabel
+        
+    }
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         dessineRect(size)
     }

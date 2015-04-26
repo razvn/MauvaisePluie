@@ -2,4 +2,70 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MauvaisePluie/MauvaisePluieModel.swift"
+            timestampString = "451658618.86855"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "MauvaisePluieModel"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "globalinit_33_D38DA6661AC2032E53050F371AF262AF_func0"
+                  moduleName = "MauvaisePluie"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/razvan/DeviOS/mooc/MauvaisePluie/MauvaisePluie/MauvaisePluieModel.swift"
+                  timestampString = "451658618.913392"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MauvaisePluie.MauvaisePluieModel.(Constantes in _D38DA6661AC2032E53050F371AF262AF).nbAsteroidsNiveau1.unsafeMutableAddressor : Swift.Int"
+                  moduleName = "MauvaisePluie"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/razvan/DeviOS/mooc/MauvaisePluie/MauvaisePluie/MauvaisePluieModel.swift"
+                  timestampString = "451658618.916627"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "22">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MauvaisePluie/JeuViewController.swift"
+            timestampString = "451692197.21347"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "496"
+            endingLineNumber = "496"
+            landmarkName = "moveTouchEnded(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

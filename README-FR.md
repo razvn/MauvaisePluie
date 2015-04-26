@@ -13,6 +13,11 @@ Razvan - mars 2015
 Fait avec XCode 6.3 -> mis à jour pour Swift 1.2
 
 ## Spécificités
+v1.0b6
+- Nouvelle version du jeu en SpriteKit. C’est vraiment le framework le plus accessible et adapté à ce type de jeu, j’ai donc voulu faire une version afin d’essayer. Il devient le mode par défaut et celui qui évoluera le plus.
+- UI revisitée: nouvelle fonte, cohérence encre les vues, passée en anglais, boutons déplacement et les autres aussi plus grands 
+- Ajout de niveaux (jusqu’à 9)
+- Retour de la version NSTimer. Ce projet c’est une démo de comment faire ce genre de jeu des différentes manières, donc a bien sa place même si j’en suis pas très fière de cette version. Si j’ai du temps peut être je l’a tweeterai plus tard.
 
 v1.0b5
 - Suppression de l'option de la l'activation de la version NSTimer (elle est vraiment pas à l'hauteur, la classe elle reste pour l'exemple)

@@ -16,6 +16,7 @@ class JeuUIDyViewController: UIViewController, UICollisionBehaviorDelegate {
     @IBOutlet weak var labelNiveau: UILabel!
     
     @IBOutlet weak var labelScore: UILabel!
+    @IBOutlet weak var labelScoreValue: UILabel!
     
     @IBOutlet weak var labelFin: UILabel!
     
@@ -85,7 +86,7 @@ class JeuUIDyViewController: UIViewController, UICollisionBehaviorDelegate {
     
     private var score: Int {
         didSet {
-            labelScore.text = "Score: \(score)"
+            labelScoreValue.text = "\(score)"
         }
     }
     
@@ -149,7 +150,7 @@ class JeuUIDyViewController: UIViewController, UICollisionBehaviorDelegate {
             stopDebutimer()
             
             //debutPartie
-            labelFin.text = "GO"
+            labelFin.text = "Go"
             //disparition du message go
             UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
                 self.labelFin.alpha = 0.0
@@ -169,7 +170,7 @@ class JeuUIDyViewController: UIViewController, UICollisionBehaviorDelegate {
         stopGameTimer()
         
         //afficher le message
-        labelFin.text = "ARGHHHHHHHH !!!"
+        labelFin.text = "Arghhhhhhh!!!"
         labelFin.textColor = UIColor.redColor()
         labelFin.hidden = false
         
@@ -629,9 +630,11 @@ class JeuUIDyViewController: UIViewController, UICollisionBehaviorDelegate {
         
         labelNiveau.textColor = UIColor.whiteColor()
         labelScore.textColor = UIColor.whiteColor()
+        labelScoreValue.textColor = UIColor.whiteColor()
         
         //create the player
         if let img = UIImage(named: "player") {
+            
             player = UIImageView(image: img)
             
             let tailleRatio = img.size.width / img.size.height
@@ -642,6 +645,7 @@ class JeuUIDyViewController: UIViewController, UICollisionBehaviorDelegate {
             let xpos = maxScreenWidth / 2 - CGFloat(Constantes.TailleJoueur) / 2
             let ypos = maxScreenHeight - CGFloat(tailleHeight)
             
+           
             player.frame = CGRect(x: xpos,
                 y: ypos,
                 width: CGFloat(Constantes.TailleJoueur),

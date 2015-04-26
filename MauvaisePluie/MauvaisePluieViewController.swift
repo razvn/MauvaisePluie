@@ -47,15 +47,7 @@ class MauvaisePluieViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         labelNiveau.text = dataSource.getNiveauEncours().nom
         
-        labelVersion.hidden = true
-        /*
-        if (dataSource.getActiverDynamic()) {
-            labelVersion.text = "(version UIDynamics)"
-        } else {
-            labelVersion.text = "(version NSTimer)"
-        }
-        */
-        
+        labelVersion.text = "version \(dataSource.getVersion())"
     }
     
     override func didReceiveMemoryWarning() {
@@ -78,19 +70,31 @@ class MauvaisePluieViewController: UIViewController {
     @IBAction func showJeuView() {
         if self.storyboard != nil {
             
-            if dataSource.getActiverDynamic() {
+            switch dataSource.getVersion() {
+            case "SpriteKit":
+                let jeuView =
+                self.storyboard!.instantiateViewControllerWithIdentifier("jeuViewSK") as! JeuSKViewController
+            dataSource.updateScore(0)
+            jeuView.dataSource = dataSource
+            self.navigationController?.pushViewController(jeuView, animated: true)
+            
+            case "UIDynamic":
                 let jeuView = self.storyboard!.instantiateViewControllerWithIdentifier("jeuViewDyn") as! JeuUIDyViewController
                 
                 dataSource.updateScore(0)
                 jeuView.dataSource = dataSource
                 self.navigationController?.pushViewController(jeuView, animated: true)
-            } else {
-                let jeuView = self.storyboard!.instantiateViewControllerWithIdentifier("jeuView") as! JeuViewController
-                
+            case "NSTimer":
+                let jeuView =
+                self.storyboard!.instantiateViewControllerWithIdentifier("jeuView") as! JeuViewController
                 dataSource.updateScore(0)
                 jeuView.dataSource = dataSource
                 self.navigationController?.pushViewController(jeuView, animated: true)
+
+            default:
+                println("Unknown play mode")
             }
+            
             
         } else {
             println("JeuView: Storyboard est nul")

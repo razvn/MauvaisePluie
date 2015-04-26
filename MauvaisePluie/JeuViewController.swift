@@ -55,6 +55,9 @@ class JeuViewController: UIViewController {
         static let ParamMargeIntColision:CGFloat = 7 //marge de detection de colision
         static let ParamMargeAsteoColision:CGFloat = 10 //marge de detection de colision asteroides
         static let CountdonwFrom = 3
+        static let ButtonBackgroundNormal = UIColor(white: 0.7, alpha: 0.1)
+        static let ButtonBackgroundHighlight = UIColor(white: 0.7, alpha: 0.2)
+
         
     }
     
@@ -83,7 +86,7 @@ class JeuViewController: UIViewController {
     
     private var score: Int {
         didSet {
-            labelScore.text = "Score: \(score)"
+            labelScore.text = "Score \(score)"
         }
     }
     
@@ -148,7 +151,7 @@ class JeuViewController: UIViewController {
             stopDebutimer()
             
             //debutPartie
-            labelFin.text = "GO"
+            labelFin.text = "Go"
             //disparition du message go
             UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
                 self.labelFin.alpha = 0.0
@@ -180,7 +183,7 @@ class JeuViewController: UIViewController {
             desactiverTimersJeu()
             
             //afficher le message
-            labelFin.text = "ARGHHHHHHHH !!!"
+            labelFin.text = "Arghhhhhhh!!!"
             labelFin.textColor = UIColor.redColor()
             labelFin.hidden = false
             
@@ -463,6 +466,7 @@ class JeuViewController: UIViewController {
     
     ///Appui pour aller à gauche
     @IBAction func moveLeftTouchDown() {
+        butGauche.backgroundColor = Constantes.ButtonBackgroundHighlight
         goLeft()
         if dataSource.getActiverAppui() {
             startMoveTimer(true)
@@ -471,6 +475,7 @@ class JeuViewController: UIViewController {
     
     ///Appui pour aller à droite
     @IBAction func moveRightTouchDown() {
+        butDroite.backgroundColor = Constantes.ButtonBackgroundHighlight
         goRight()
         if dataSource.getActiverAppui() {
             startMoveTimer(false)
@@ -478,12 +483,22 @@ class JeuViewController: UIViewController {
     }
     
     ///Arret d'appui sur les touches de déplacement
-    @IBAction func moveTouchUp() {
+    @IBAction func moveTouchUp(sender: UIButton) {
+        if sender === butDroite {
+            butDroite.backgroundColor = Constantes.ButtonBackgroundNormal
+        } else if sender === butGauche {
+            butGauche.backgroundColor = Constantes.ButtonBackgroundNormal
+        }
         stopMoveTimer()
     }
     
     ///Arret d'appui sur les touches de déplacement
-    @IBAction func moveTouchEnded() {
+    @IBAction func moveTouchEnded(sender: UIButton) {
+        if sender === butDroite {
+            butDroite.backgroundColor = Constantes.ButtonBackgroundNormal
+        } else if sender === butGauche {
+            butGauche.backgroundColor = Constantes.ButtonBackgroundNormal
+        }
         stopMoveTimer()
     }
     
@@ -498,6 +513,10 @@ class JeuViewController: UIViewController {
     //MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        labelNiveau.textColor = UIColor.whiteColor()
+        labelScore.textColor = UIColor.whiteColor()
+        
         score = dataSource.getScore()
         labelNiveau.text = dataSource.getNiveauEncours().nom
     }
@@ -547,6 +566,9 @@ class JeuViewController: UIViewController {
                 butGauche.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
                 butDroite.setTitleColor(UIColor.darkGrayColor(), forState: UIControlState.Disabled)
                 butGauche.setTitleColor(UIColor.darkGrayColor(), forState: UIControlState.Disabled)
+                butDroite.backgroundColor = Constantes.ButtonBackgroundNormal
+                butGauche.backgroundColor = Constantes.ButtonBackgroundNormal
+                
                 UIView.animateWithDuration(Double(Constantes.CountdonwFrom), animations: {
                     self.imageFond.center.y = self.view.center.y + self.maxScreenHeight / 2
                 })
@@ -566,13 +588,16 @@ class JeuViewController: UIViewController {
             player = UIImageView(image: img)
             
             //position en bas au milieu
+            let ratio = img.size.width / img.size.height
+            let playerHeight = CGFloat(Constantes.TailleJoueur)/ratio
             let xpos = maxScreenWidth / 2 - CGFloat(Constantes.TailleJoueur) / 2
-            let ypos = maxScreenHeight - CGFloat(Constantes.TailleJoueur)
+            let ypos = maxScreenHeight - playerHeight
+            
             
             player.frame = CGRect(x: xpos,
                 y: ypos,
                 width: CGFloat(Constantes.TailleJoueur),
-                height: CGFloat(Constantes.TailleJoueur))
+                height: CGFloat(playerHeight))
             
             
             //ajout du joueur sur l'image du fond
@@ -602,6 +627,7 @@ class JeuViewController: UIViewController {
             }
             //println("player.frame: \(player.frame.origin) / screenHeight: \(maxScreenHeight) / screenWidth: \(maxScreenWidth)")
         }
+        
         
         //Affiche le countdown avant début
         labelFin.hidden = false
