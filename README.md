@@ -8,7 +8,7 @@ iOS - Swift 1.2 version
 
 See [Wiki](https://github.com/razvn/MauvaisePluie/wiki) for details about the app.
 
-<img src="http://i.imgur.com/OXtiWH5.png" alt="Welcome Screen" width="500px">
+<img src="http://i.imgur.com/wCBqqG7.png" alt="Welcome Screen" width="500px">
 
 ### Versions
 v1.0b6
