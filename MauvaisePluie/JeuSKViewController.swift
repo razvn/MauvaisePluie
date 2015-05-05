@@ -25,13 +25,20 @@ class JeuSKViewController: UIViewController, JeuSceneProtocole {
 
     
     private struct Constants {
-        static let ButtonWidth:CGFloat = 50.0
+        static let ButtonWidth:CGFloat = 60.0
+        static let ButtonWidthIpad:CGFloat = 90.0
         static let ButtonBackgroundNormal = UIColor(white: 0.7, alpha: 0.1)
         static let ButtonBackgroundHighlight = UIColor(white: 0.7, alpha: 0.2)
 
     }
     
-    
+    var buttonWidth: CGFloat {
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+            return Constants.ButtonWidth
+        } else {
+            return Constants.ButtonWidthIpad
+        }
+    }
     @IBAction func finJeu() {
         if self.storyboard != nil {
             
@@ -61,7 +68,7 @@ class JeuSKViewController: UIViewController, JeuSceneProtocole {
         
         let skView = view as! SKView
         
-        buttonRight = UIButton(frame: CGRect(x: view.frame.width - Constants.ButtonWidth, y: 0, width: Constants.ButtonWidth, height: view.frame.height))
+        buttonRight = UIButton(frame: CGRect(x: view.frame.width - buttonWidth, y: 0, width: buttonWidth, height: view.frame.height))
         buttonRight.setTitle(">>>", forState: UIControlState.Normal)
         buttonRight.titleLabel?.font = UIFont(name: "Chalkduster", size: 20.0)
         buttonRight.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
@@ -78,7 +85,7 @@ class JeuSKViewController: UIViewController, JeuSceneProtocole {
         
         skView.addSubview(buttonRight)
         
-        buttonLeft = UIButton(frame: CGRect(x: 0, y: 0, width: Constants.ButtonWidth, height: view.frame.height))
+        buttonLeft = UIButton(frame: CGRect(x: 0, y: 0, width: buttonWidth, height: view.frame.height))
         buttonLeft.setTitle("<<<", forState: UIControlState.Normal)
         buttonLeft.titleLabel?.font = UIFont(name: "Chalkduster", size: 20.0)
         buttonLeft.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVFoundation
+
 import Fabric
 import Crashlytics
 
@@ -21,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         Fabric.with([Crashlytics()])
 
+        AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient, error: nil)
+        
         return true
     }
 

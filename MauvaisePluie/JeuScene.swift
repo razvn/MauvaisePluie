@@ -44,8 +44,6 @@ class JeuScene: SKScene, SKPhysicsContactDelegate {
     private var niveauJeu = 0
     private var isPhone = false
     
-    private var burstNode: SKEmitterNode?
-    
     private struct Constants {
         static let PlayerWidth:CGFloat = 40.0
         static let PlayerMoveTime: CGFloat = 2.0 //seconds - time to move the player across the screen from left border to right one
@@ -101,10 +99,14 @@ class JeuScene: SKScene, SKPhysicsContactDelegate {
         
         var startAnimationDuration = 3.0
         var delta = CGVector(dx: 0, dy: 0)
+        var ymove: CGFloat = 0.0
         if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            let ymove = bgImage.size.height / 7
-            delta = CGVector(dx: 0, dy: -ymove)
+            ymove = bgImage.size.height / 7
+        } else {
+            ymove = -bgImage.size.height / 7
         }
+        
+        delta = CGVector(dx: 0, dy: -ymove)
         let actionMoveBackground = SKAction.moveBy(delta, duration: startAnimationDuration)
         runAction(SKAction.playSoundFileNamed("sw.m4a", waitForCompletion: false))
         bgImage.runAction(actionMoveBackground)
@@ -209,23 +211,36 @@ class JeuScene: SKScene, SKPhysicsContactDelegate {
         player.removeAllActions()
         
         let target_x = player.position.x
-        let target_y = player.position.y
+        let target_y = player.position.y + player.frame.height / 2
 
         label.text = "Arghhhhhhh!!!"
         addChild(label)
-        runAction(SKAction.playSoundFileNamed("Explosion.mp3", waitForCompletion: false))
-        if burstNode != nil {
-            burstNode!.position = CGPointMake(target_x, target_y)
-            player.removeFromParent()
-            self.addChild(burstNode!)
+        
+        
+        if let burstPath = NSBundle.mainBundle().pathForResource("PlayerParticle", ofType: "sks") {
+            var burstNode = NSKeyedUnarchiver.unarchiveObjectWithFile(burstPath) as! SKEmitterNode
+            burstNode.zPosition = 0
+            burstNode.position = CGPointMake(target_x, target_y)
+            self.addChild(burstNode)
         }
+
+        runAction(SKAction.playSoundFileNamed("Explosion.mp3", waitForCompletion: false))
+        
+        player.removeFromParent()
+
+
         
         
         var delta = CGVector(dx: 0, dy: 0)
+        var ymove: CGFloat = 0.0
         if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            let ymove = bgImage.size.height / 7
-            let delta = CGVector(dx: 0, dy: ymove)
+            ymove = bgImage.size.height / 7
+            
+        } else {
+            ymove = -bgImage.size.height / 7
         }
+        
+        delta = CGVector(dx: 0, dy: ymove)
         let actionMoveBackground = SKAction.moveBy(delta, duration: 3.0)
         runAction(SKAction.playSoundFileNamed("sw.m4a", waitForCompletion: false))
         bgImage.runAction(actionMoveBackground, completion: { () -> Void in
@@ -456,20 +471,19 @@ class JeuScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    
-    
     override init(size: CGSize) {
         super.init(size: size)
         bgImage = SKSpriteNode(imageNamed: "fond-mauvaise-pluie")
-        
+
         self.addChild(bgImage)
-        bgImage.position = CGPointMake(self.size.width / 2, self.size.height / 2)
         
-        if let burstPath = NSBundle.mainBundle().pathForResource("PlayerParticle", ofType: "sks") {
-            burstNode = NSKeyedUnarchiver.unarchiveObjectWithFile(burstPath) as? SKEmitterNode
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+            bgImage.position = CGPointMake(self.size.width / 2, self.size.height / 2)
+        } else {
+            let ymove = bgImage.size.height / 7
+            bgImage.position = CGPointMake(self.size.width / 2, self.size.height / 2 - ymove)
+            
         }
-        
-     
     }
 
     required init?(coder aDecoder: NSCoder) {
