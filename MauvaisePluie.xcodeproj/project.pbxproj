@@ -207,6 +207,7 @@
 		E5E8610D1AE3B1A0000AA308 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Razvan.net;
 				TargetAttributes = {
